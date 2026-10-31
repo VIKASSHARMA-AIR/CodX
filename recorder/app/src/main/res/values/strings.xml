@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CodX Recorder</string>
+    <string name="channel_recording_name">CodX Active Recording</string>
+    <string name="channel_recording_desc">Shows active background audio recording status</string>
+</resources>

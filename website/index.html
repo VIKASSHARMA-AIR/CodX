@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodX Audio — Offline-First Recording & Remote Controller System</title>
+  <meta name="description" content="Download APK testing packages and source code for CodX Recorder (Phone A) and CodX Controller (Phone B).">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">CX</div>
+        <div class="brand-name">Cod<span>X</span> Audio</div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#downloads">APK Downloads</a></li>
+        <li><a href="#features">Architecture</a></li>
+        <li><a href="#testing-guide">Testing Guide</a></li>
+        <li><a href="#api-tester">API Tester</a></li>
+        <li><a href="javascript:void(0)" onclick="openModal('terms')">Terms</a></li>
+        <li><a href="javascript:void(0)" onclick="openModal('privacy')">Privacy</a></li>
+      </ul>
+
+      <a href="#downloads" class="btn btn-gold btn-sm">Get Testing APKs</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="container">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span>CodX System v1.0.1 • Android 16 &amp; Time-Change Resilient</span>
+      </div>
+
+      <h1>
+        Remotely Synchronized &<br>
+        <span class="highlight-recorder">Offline-First Recorder</span> + 
+        <span class="highlight-controller">Controller</span>
+      </h1>
+
+      <p class="hero-desc">
+        A resilient two-phone audio recording system. Phone A executes recording schedules on exact hardware alarms even without internet or after a reboot. Phone B creates timetables, monitors battery and storage, and streams audio from anywhere.
+      </p>
+
+      <div class="hero-actions">
+        <a id="dl-recorder-btn" href="downloads/CodX_Recorder_v1.0_Test.apk" class="btn btn-coral" download>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+          Download Recorder APK (Phone A)
+        </a>
+
+        <a id="dl-controller-btn" href="downloads/CodX_Controller_v1.0_Test.apk" class="btn btn-gold" download>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Download Controller APK (Phone B)
+        </a>
+
+        <a id="dl-source-btn" href="downloads/CodX_Android_Project.zip" class="btn btn-secondary" download>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          Source Package (.zip)
+        </a>
+      </div>
+
+      <div class="status-bar" id="system-status-indicator">
+        <span class="status-dot"></span> Checking Cloud Synchronization Server...
+      </div>
+    </div>
+  </section>
+
+  <!-- Download APK Showcase Section -->
+  <section class="section" id="downloads">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Testing APK Packages & Downloads</h2>
+        <p class="section-desc">Install directly on your Android test devices (API 26+) or open the source code in Android Studio.</p>
+      </div>
+
+      <!-- Notice Banner for Android 14/15/16 Device Testers -->
+      <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 14px; padding: 18px 24px; margin-bottom: 32px; display: flex; gap: 16px; align-items: flex-start;">
+        <div style="font-size: 28px; line-height: 1;">📱</div>
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+            <strong style="color: var(--accent-gold); font-size: 16px;">Android 14 / 15 / 16 Device Installation Notice</strong>
+            <span style="background: #f59e0b; color: #0a0e17; font-weight: 700; font-size: 11px; padding: 2px 8px; border-radius: 10px;">ACTION REQUIRED</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 13.5px; line-height: 1.6; margin-bottom: 10px;">
+            If your Android 16 device displays <strong>"There was a problem while parsing the package"</strong>, it is because modern Android strictly blocks uncompiled placeholder packages and requires compiled <strong>AAPT2 Binary XML</strong> and <strong>APK Signature Scheme v2/v3</strong>.
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; font-size: 13px;">
+            <div style="background: rgba(0,0,0,0.25); padding: 12px; border-radius: 8px; border-left: 3px solid var(--accent-coral);">
+              <strong style="color: var(--accent-coral); display: block; margin-bottom: 4px;">Option 1: 1-Click Run via Android Studio (Fastest)</strong>
+              <span>Connect your Android 16 phone via USB with <em>USB Debugging</em> enabled. Open <code>recorder/</code> or <code>controller/</code> in Android Studio and click the green <strong>Run (▶)</strong> button!</span>
+            </div>
+            <div style="background: rgba(0,0,0,0.25); padding: 12px; border-radius: 8px; border-left: 3px solid var(--accent-gold);">
+              <strong style="color: var(--accent-gold); display: block; margin-bottom: 4px;">Option 2: Build Real APK for Website Download</strong>
+              <span>In Android Studio, click <strong>Build &gt; Build Bundle(s) / APK(s) &gt; Build APK(s)</strong>. Copy the generated <code>app-debug.apk</code> into <code>website/downloads/</code>.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="downloads-grid">
+        <!-- Card 1: Recorder -->
+        <div class="download-card">
+          <div class="card-top">
+            <div class="card-icon coral">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            </div>
+            <span class="card-tag coral">Phone A • Offline-First</span>
+          </div>
+
+          <h3>CodX Recorder</h3>
+          <p class="card-meta">Package: com.codx.recorder • v1.0.1-test</p>
+
+          <ul class="card-features">
+            <li>Exact AlarmManager RTC_WAKEUP execution</li>
+            <li>Reboot &amp; Time-Change resilience (handles manual, timezone &amp; date shifts)</li>
+            <li>Monotonic clock duration protection against time tampering</li>
+            <li>Partial WakeLock keeps CPU awake while screen is off</li>
+            <li>128kbps AAC audio in MPEG-4 (.m4a) container</li>
+            <li>SHA-256 cryptographic deduplication on reconnect</li>
+          </ul>
+
+          <div class="card-action">
+            <a href="downloads/CodX_Recorder_v1.0.1_Test.apk" class="btn btn-coral" download>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+              Download Recorder APK (v1.0.1)
+            </a>
+          </div>
+
+          <div class="qr-box">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://codx-audio.com/downloads/CodX_Recorder_v1.0.1_Test.apk" alt="QR Code">
+            <div class="qr-text">
+              <strong>Scan with Phone A</strong>
+              <span>Direct install on test device</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Controller -->
+        <div class="download-card">
+          <div class="card-top">
+            <div class="card-icon gold">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="card-tag gold">Phone B • Controller</span>
+          </div>
+
+          <h3>CodX Controller</h3>
+          <p class="card-meta">Package: com.codx.controller • v1.0.1-test</p>
+
+          <ul class="card-features">
+            <li>Google Sign-In with Firebase Authentication API</li>
+            <li>Remote daily &amp; weekly timetable manager with live sync</li>
+            <li>Live Recorder battery % and storage telemetry</li>
+            <li>ExoPlayer audio streaming with HTTP Range seekbar</li>
+            <li>Offline download &amp; playback support</li>
+            <li>Google Play Account Deletion compliance built-in</li>
+          </ul>
+
+          <div class="card-action">
+            <a href="downloads/CodX_Controller_v1.0.1_Test.apk" class="btn btn-gold" download>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+              Download Controller APK (v1.0.1)
+            </a>
+          </div>
+
+          <div class="qr-box">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://codx-audio.com/downloads/CodX_Controller_v1.0.1_Test.apk" alt="QR Code">
+            <div class="qr-text">
+              <strong>Scan with Phone B</strong>
+              <span>Direct install on test device</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Cloud Server & Full Source -->
+        <div class="download-card">
+          <div class="card-top">
+            <div class="card-icon cyan">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+            </div>
+            <span class="card-tag cyan">FastAPI Cloud & Source</span>
+          </div>
+
+          <h3>Full Source Package</h3>
+          <p class="card-meta">Complete Project Archive • CodX Android Project.zip</p>
+
+          <ul class="card-features">
+            <li>Full Android Studio source code for both apps</li>
+            <li>Python FastAPI cloud sync server with SQLite WAL</li>
+            <li>14 automated integration & authentication tests</li>
+            <li>Terms of Service, Privacy Policy & Play Store guide</li>
+            <li>Interactive Swagger API documentation (/docs)</li>
+            <li>Upload queue with exponential backoff retries</li>
+          </ul>
+
+          <div class="card-action">
+            <a href="downloads/CodX_Android_Project.zip" class="btn btn-secondary" download>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+              Download Full Source (.zip)
+            </a>
+          </div>
+
+          <div class="qr-box">
+            <div class="qr-text" style="width: 100%;">
+              <strong>Start Cloud Server:</strong>
+              <code>uvicorn main:app --host 0.0.0.0 --port 8000</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-Step Testing Walkthrough -->
+  <section class="section" id="testing-guide" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">4-Step Physical Phone Testing Sequence</h2>
+        <p class="section-desc">How to test and verify the offline-first recording guarantee between two phones.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h4>Install & Open Recorder</h4>
+          <p>Install <code>CodX Recorder</code> on Phone A. Grant microphone and notification permissions. Note the 6-digit code on screen (e.g. <code>CDX-4829</code>).</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h4>Login on Controller</h4>
+          <p>Install <code>CodX Controller</code> on Phone B. Tap "Sign in with Google" or choose "Sign in with Demo Account". View your active profile badge.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h4>Pair Devices & Set Schedule</h4>
+          <p>Under the Pair tab, enter the 6-digit code from Phone A. Once paired, create a recording timetable starting 2 minutes in the future.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h4>Offline-First Verification</h4>
+          <p>Turn OFF Wi-Fi and mobile data on Phone A, and reboot Phone A. When the scheduled time arrives, Phone A wakes up and records completely offline!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Cloud API Tester Widget -->
+  <section class="section" id="api-tester">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Live Cloud Server & API Tester</h2>
+        <p class="section-desc">Test real-time endpoint latency, device registration, and server connectivity directly in your browser.</p>
+      </div>
+
+      <div class="tester-card">
+        <div class="tester-input-group">
+          <input type="text" id="server-url-input" class="tester-input" value="http://localhost:8000" placeholder="http://192.168.1.50:8000">
+          <button id="test-ping-btn" class="btn btn-secondary">Ping Server</button>
+          <button id="test-register-btn" class="btn btn-gold">Test Register Device</button>
+        </div>
+
+        <div class="tester-console" id="tester-console-output">
+[System Ready] Click "Ping Server" or "Test Register Device" to inspect cloud API responses...
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal Modal: Terms -->
+  <div class="modal-overlay" id="modal-terms">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="color:var(--accent-gold);">Terms & Conditions (Terms of Service)</h3>
+        <button class="modal-close" onclick="closeModal('terms')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4>1. Permitted Use & Mutual Consent</h4>
+        <p>CodX Controller is intended solely as an authorized remote companion for devices you own or have explicit authorization to manage. Clandestine surveillance, eavesdropping, or tracking without mutual consent is strictly prohibited.</p>
+        <h4>2. Persistent Recording Indicator</h4>
+        <p>The paired CodX Recorder will ALWAYS display a non-dismissible foreground status notification while recording.</p>
+        <h4>3. Google Play Account Deletion</h4>
+        <p>Users have the right to delete their account and associated data at any time via the in-app profile sheet or at https://codx-audio.com/delete-account.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legal Modal: Privacy -->
+  <div class="modal-overlay" id="modal-privacy">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="color:var(--accent-cyan);">Privacy Policy</h3>
+        <button class="modal-close" onclick="closeModal('privacy')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4>1. Data Collected</h4>
+        <p>We collect Google account identifiers (name, email, profile photo, Firebase UID), hardware telemetry (battery %, charging state, available storage), and encrypted audio files.</p>
+        <h4>2. Zero Third-Party Sale</h4>
+        <p>We do NOT sell, monetize, or share your data or recordings with any third-party advertising network.</p>
+        <h4>3. Data Security</h4>
+        <p>All transfers utilize TLS 1.2/1.3 encryption. Audio files are validated with cryptographic SHA-256 checksums.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <strong style="color:var(--text-primary); font-size:16px;">CodX Audio Technologies</strong>
+          <p style="margin-top:4px;">Offline-first recording & remote hardware synchronization.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="javascript:void(0)" onclick="openModal('terms')">Terms of Service</a>
+          <a href="javascript:void(0)" onclick="openModal('privacy')">Privacy Policy</a>
+          <a href="https://codx-audio.com/delete-account">Account Deletion</a>
+          <a href="/docs" target="_blank">Swagger API Docs</a>
+        </div>
+      </div>
+
+      <p style="text-align:center; font-size:12px; margin-top:20px; color:var(--text-muted);">
+        &copy; 2026 CodX Technologies. Google Play, Android, and Firebase are trademarks of Google LLC.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

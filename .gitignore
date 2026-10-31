@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.db
+*.sqlite3
+
+# Build Tools & SDK downloads
+build-tools/
+downloads/
+*.zip
+
+# Gradle & Android Build Outputs
+.gradle/
+build/
+*/build/
+*/*/build/
+*.apk
+*.aab
+
+# Android Studio / IntelliJ IDEA
+.idea/
+*.iml
+.DS_Store
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
